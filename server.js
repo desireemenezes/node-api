@@ -1,18 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const requireDir = require('require-dir');
 
-//init app
+// init app
 const app = express()
-const port = 3000
+const port = 3001
+app.use(express.json());
 
 // init Db
-mongoose.connect('mongodb://localhost:27017/nodeapi', {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/nodeapi",{ useUnifiedTopology: true , useNewUrlParser: true });
 
-// first route
-app.get('/', (req, res) => {
-    res.send('Hello World! ')
-  })
+requireDir('./src/models');
+
+//route
+app.use("/api", require("./src/routes"));
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
-  })
+});

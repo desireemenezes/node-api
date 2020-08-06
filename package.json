@@ -20,7 +20,8 @@
   "homepage": "https://github.com/desireemenezes/node-api#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.27"
+    "mongoose": "^5.9.27",
+    "require-dir": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
